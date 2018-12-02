@@ -1,0 +1,414 @@
+
+
+
+.. raw:: html
+
+   <h1 align="center">
+
+Sets and Dictionaries
+
+.. raw:: html
+
+   </h1>
+
+Table of Contents
+-----------------
+
+.. raw:: html
+
+   <div class="alert alert-block alert-info" style="margin-top: 20px">
+
+.. raw:: html
+
+   <li>
+
+Sets
+
+.. raw:: html
+
+   </li>
+
+.. raw:: html
+
+   <p>
+
+.. raw:: html
+
+   </p>
+
+Estimated Time Needed: 20 min
+
+.. raw:: html
+
+   </div>
+
+.. raw:: html
+
+   <hr>
+
+.. raw:: html
+
+   <center>
+
+.. raw:: html
+
+   <h2>
+
+Sets
+
+.. raw:: html
+
+   </h2>
+
+.. raw:: html
+
+   </center>
+
+In this lab, we are going to take a look at sets in Python. A set is a
+unique collection of objects in Python. You can denote a set with a
+curly bracket **{}**. Python will remove duplicate items:
+
+.. code:: python
+
+    set1={"pop", "rock", "soul", "hard rock", "rock", "R&B", "rock", "disco"}
+    set1
+
+The process of mapping is illustrated in the figure:
+
+
+
+You can also create a set from a list as follows:
+
+.. code:: python
+
+    album_list =[ "Michael Jackson", "Thriller", 1982, "00:42:19", \
+                  "Pop, Rock, R&B", 46.0, 65, "30-Nov-82", None, 10.0]
+    
+    album_set = set(album_list)             
+    album_set
+
+Now let us create a set of genres:
+
+.. code:: python
+
+    music_genres = set(["pop", "pop", "rock", "folk rock", "hard rock", "soul", \
+                        "progressive rock", "soft rock", "R&B", "disco"])
+    music_genres
+
+Convert the following list to a set ['rap','house','electronic music', 'rap']:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. raw:: html
+
+   <div align="right">
+
+Click here for the solution
+
+.. raw:: html
+
+   </div>
+
+.. raw:: html
+
+   <div id="q10" class="collapse">
+
+::
+
+    set(['rap','house','electronic music','rap'])
+
+.. raw:: html
+
+   </div>
+
+Notice that the duplicates are removed and the output is sorted.
+
+Let us get the sum of the claimed sales:
+
+Consider the list A=[1,2,2,1] and set B=set([1,2,2,1]), does sum(A)=sum(B)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. raw:: html
+
+   <div align="right">
+
+Click here for the solution
+
+.. raw:: html
+
+   </div>
+
+.. raw:: html
+
+   <div id="2" class="collapse">
+
+::
+
+    No, when casting a list to a set, the new set has no repeat elements. Run the following code to verify:
+    A=[1,2,2,1]  
+    B=set([1,2,2,1])
+    print("the sum of A is:",sum(A))
+    print("the sum of B is:",sum(B))
+
+.. raw:: html
+
+   </div>
+
+Now let's determine the average rating:
+
+Set Operations
+~~~~~~~~~~~~~~
+
+Let us go over Set Operations, as these can be used to change the set.
+Consider the set **A**:
+
+.. code:: python
+
+    A = set(["Thriller","Back in Black", "AC/DC"] )
+    A
+
+We can add an element to a set using the **add()** method:
+
+.. code:: python
+
+    A.add("NSYNC")
+    A
+
+If we add the same element twice, nothing will happen as there can be no
+duplicates in a set:
+
+.. code:: python
+
+    A.add("NSYNC")
+    A
+
+We can remove an item from a set using the remove method:
+
+.. code:: python
+
+    A.remove("NSYNC")
+    A
+
+We can verify if an element is in the set using the **in** command :
+
+.. code:: python
+
+    "AC/DC"  in A
+
+
+Working with sets
+~~~~~~~~~~~~~~~~~
+
+Remember that with sets you can check the difference between sets, as
+well as the symmetric difference, intersection, and union:
+
+Consider the following two sets:
+
+.. code:: python
+
+    album_set1 = set(["Thriller",'AC/DC', 'Back in Black'] )
+    album_set2 = set([ "AC/DC","Back in Black", "The Dark Side of the Moon"] )
+
+.. raw:: html
+
+   <h4 align="center">
+
+Visualizing the sets as two circles
+
+.. raw:: html
+
+   </h4>
+
+.. code:: python
+
+    album_set1, album_set2
+
+As both sets contain 'AC/DC' and 'Back in Black' we represent these
+common elements with the intersection of two circles.
+
+.. raw:: html
+
+   <h4 align="center">
+
+Visualizing common elements with the intersection of two circles.
+
+.. raw:: html
+
+   </h4>
+
+We can find the common elements of the sets as follows:
+
+.. code:: python
+
+    album_set_3=album_set1 & album_set2
+    album_set_3
+
+We can find all the elements that are only contained in **album\_set1**
+using the **difference** method:
+
+.. code:: python
+
+    album_set1.difference(album_set2)  
+
+We only consider elements in **album\_set1**; all the elements in
+**album\_set2**, including the intersection, are not included.
+
+.. raw:: html
+
+   <h4 align="center">
+
+The difference of “album\_set1” and “album\_set2
+
+.. raw:: html
+
+   </h4>
+
+The difference between **album\_set2** and **album\_set1** is given by:
+
+.. code:: python
+
+    album_set2.difference(album_set1)  
+
+.. raw:: html
+
+   <h4 align="center">
+
+The difference of **album\_set2** and **album\_set1**
+
+.. raw:: html
+
+   </h4>
+
+We can also find the intersection, i.e in both **album\_list2** and
+**album\_list1**, using the intersection command :
+
+.. code:: python
+
+    album_set1.intersection(album_set2)   
+
+This corresponds to the intersection of the two circles:
+
+.. raw:: html
+
+   <h4 align="center">
+
+Intersection of set
+
+.. raw:: html
+
+   </h4>
+
+The union corresponds to all the elements in both sets, which is
+represented by colouring both circles:
+
+.. raw:: html
+
+   <h4 align="center">
+
+Figure 7: Union of set
+
+.. raw:: html
+
+   </h4>
+
+The union is given by:
+
+.. code:: python
+
+    album_set1.union(album_set2)
+
+And you can check if a set is a superset or subset of another set,
+respectively, like this:
+
+.. code:: python
+
+    set(album_set1).issuperset(album_set2)   
+
+.. code:: python
+
+    set(album_set2).issubset(album_set1)     
+
+Here is an example where **issubset()** is **issuperset()** is true:
+
+.. code:: python
+
+    set({"Back in Black", "AC/DC"}).issubset(album_set1) 
+
+.. code:: python
+
+    album_set1.issuperset({"Back in Black", "AC/DC"})   
+
+Create a new set “album\_set3” that is the union of “album\_set1” and “album\_set2”:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. raw:: html
+
+   <div align="right">
+
+Click here for the solution
+
+.. raw:: html
+
+   </div>
+
+.. raw:: html
+
+   <div id="4" class="collapse">
+
+::
+
+    album_set3=album_set1.union(album_set2)
+    album_set3
+
+.. raw:: html
+
+   </div>
+
+Find out if "album\_set1" is a subset of "album\_set3":
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. raw:: html
+
+   <div align="right">
+
+Click here for the solution
+
+.. raw:: html
+
+   </div>
+
+.. raw:: html
+
+   <div id="5" class="collapse">
+
+::
+
+    album_set1.issubset(album_set3)  
+
+.. raw:: html
+
+   </div>
+
+
+
+About the Authors:
+==================
+
+`Joseph
+Santarcangelo <https://www.linkedin.com/in/joseph-s-50398b136/>`__ has a
+PhD in Electrical Engineering, his research focused on using machine
+learning, signal processing, and computer vision to determine how videos
+impact human cognition. Joseph has been working for IBM since he
+completed his PhD.
+
+.. raw:: html
+
+   <hr>
+
+Copyright © 2017
+`cognitiveclass.ai <cognitiveclass.ai?utm_source=bducopyrightlink&utm_medium=dswb&utm_campaign=bdu>`__.
+This notebook and its source code are released under the terms of the
+`MIT License <https://bigdatauniversity.com/mit-license/>`__.
